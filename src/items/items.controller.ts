@@ -1,3 +1,6 @@
+// Controller --> Defines the 'endpoints', gets the 'params' or
+// 'body', and calls a 'service method'
+
 import {
   Controller,
   Get,
@@ -21,8 +24,8 @@ export class ItemsController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id): string {
-    return `Item ${id}`;
+  findOne(@Param('id') id): Item {
+    return this.itemsService.findOne(id);
   }
 
   @Post()
